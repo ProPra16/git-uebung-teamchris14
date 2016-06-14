@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
@@ -20,15 +22,14 @@ public class FiveButtons extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/five_buttons" +
                 ".fxml"));
         
-        Button alarm = new Button("Alarm?");
-        alarm.setOnAction(event -> starteAlarm());
-
         primaryStage.setTitle("Five Buttons");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }
     
-    private void starteAlarm(){
-    	
+    public static void starteAlarm(){
+    	Alert alarm = new Alert(AlertType.ERROR);
+    	alarm.setContentText("Too Many Buttons");
+    	alarm.show();
     }
 }
